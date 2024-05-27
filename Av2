@@ -1,0 +1,33 @@
+// Nome da Disciplina: Javascript
+// Código da turma: 123N
+// Nome: Sarah Beatriz G. De Almeida / Matrícula: 2024100897
+
+function isPrime(num) {
+    if (num <= 1) return false;
+    if (num <= 3) return true;
+    if (num % 2 === 0 || num % 3 === 0) return false;
+    
+    for (let i = 5; i * i <= num; i += 6) {
+        if (num % i === 0 || num % (i + 2) === 0) return false;
+    }
+    return true;
+}
+
+function findLargestPrimes() {
+    let userInput = parseInt(prompt("Digite um número:"));
+    let count = 0;
+    let primes = [];
+
+    while (count < 10) {
+        if (isPrime(userInput)) {
+            primes.push(userInput);
+            count++;
+        }
+        userInput++;
+    }
+
+    console.log("Os 10 maiores números primos a partir do número fornecido são:");
+    primes.forEach(prime => console.log(prime));
+}
+
+findLargestPrimes();
